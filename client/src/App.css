@@ -1,339 +1,276 @@
-/* Container styling with 15% left and 70% width */
-.Container {
-  position: relative;
-  left: 2.5%;
-  width: 95%;
-  padding: 50px 20px;
+/* General Reset */
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Theme Colors */
+:root {
+  --mainColor: #E5E5E5;
+  --secondaryColor: #ffda47;
+  --textColor: #000000;
+}
+
+/* Container */
+.container {
+  background-color: white;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Header Section */
-.header {
-  display: grid; /* Use grid layout */
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-  gap: 20px; /* Space between grid items */
-  padding: 20px;
-  background-color: #fff;
-  width: 100%;
-}
-
-.header-item {
-  display: flex; /* Align items inside the card */
-  flex-direction: column; /* Align items vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center;
-  border-radius: 10%;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd; /* Same border style as recipe card */
-  padding: 15px; /* Increased padding */
-  background-color: #fff; /* Same background color */
-}
-
-.header-item img {
-  width: 80%; /* Image width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10%; /* Same border radius */
-  margin-bottom: 10px;
-}
-
-.header-item h3 {
-  margin: 5px 0;
-  font-size: 1.2rem; /* Adjusted font size for consistency */
-  color: #333;
-}
-
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .header {
-    grid-template-columns: repeat(3, 1fr); /* Maintain 3 cards per row */
-  }
-
-  .header-item {
-    padding: 10px; /* Reduced padding for smaller screens */
-  }
-
-  .header-item img {
-    width: 90%; /* Ensure images fit well in smaller cards */
-  }
-
-  .header-item h3 {
-    font-size: 1rem; /* Adjusted font size for consistency */
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    grid-template-columns: repeat(3, 1fr); /* Keep 3 cards per row */
-  }
-
-  .header-item {
-    padding: 5px; /* Further reduced padding for mobile */
-  }
-
-  .header-item img {
-    width: 60%; /* Smaller image size for mobile */
-  }
-
-  .header-item h3 {
-    font-size: 0.8rem; /* Smaller font size for headers */
-  }
-}
-
-
-/* Recipes Section */
-.recipes-section {
-  text-align: center;
-  margin: 40px 0;
-  width: 100%;
-}
-
-.recipes-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.recipes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Larger cards */
-  gap: 30px 40px; /* Increased row gap and column gap */
-  justify-items: center;
-  align-items: center; /* Center items vertically within the grid cells */
-  justify-content: center; /* Center grid content horizontally */
-  width: 100%;
-}
-
-.recipe-card {
+/* Navbar */
+header {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically within the card */
   align-items: center;
-  width: 100%;
-  max-width: 220px; /* Larger width for cards */
-  border: 1px solid #ddd;
-  padding: 15px; /* Increased padding */
-  border-radius: 10%;
-  background-color: #fff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
-  text-align: center;
-}
-
-.recipe-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.recipe-card h3 {
-  margin-top: 15px;
-  font-size: 1.2rem; /* Larger font size for recipe names */
-  color: #333;
-}
-
-/* Products Section */
-.products-section {
-  text-align: center;
-  margin: 40px 0;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  position: relative;
   width: 100%;
 }
+
+.logo {
+  width: 180px;
+  height: 40px;
+  border-radius: 40px;
+}
+
+.shop {
+  margin: 0 20px;
+  padding: 8px 15px;
+  background-color: var(--secondaryColor);
+  border: none;
+  border-radius: 5px;
+  color: var(--textColor);
+  cursor: pointer;
+}
+
+/* Desktop Search */
+.desktop-search-container {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.desktop-search-input {
+  width: 60%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Navbar Links */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+}
+
+nav a {
+  padding-left: 20px;
+  margin-right: 60px;
+  color: var(--textColor);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Mobile Navbar */
+.nav-btn, .search-icon {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--textColor);
+  font-size: 1.5rem;
+}
+
+.mobile-search-container {
+  width: 100%;
+  padding: 8px;
+  background-color: #f9f9f9;
+  position: fixed;
+  top: 80px;
+}
+
+.mobile-search-input {
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 1024px) {
+  .desktop-search-container {
+      display: none;
+  }
+
+  .nav-btn, .search-icon {
+      display: flex;
+  }
+
+  nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 70%;
+      width: 70%;
+      background-color: var(--mainColor);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+  }
+
+  nav.responsive_nav {
+      transform: translateX(0);
+  }
+
+  nav a {
+      margin: 10% 0;
+      text-align: center;
+  }
+
+  .shop {
+      width: 50%;
+      margin: 10% 0;
+  }
+}
+
+
+/* General styles for the carousel */
+/* General styles for the carousel */
 .Sponsors {
-  text-align: center;
-  margin: 40px 0;
-  width: 100%;
-}
-.Sponsors h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.products-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Larger cards */
-  gap: 30px 40px; /* Increased row gap and column gap */
-  justify-items: center;
-  align-items: center; /* Center items vertically within the grid cells */
-  justify-content: center; /* Center grid content horizontally */
-  width: 100%;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically within the card */
-  align-items: center;
-  width: 100%;
-  max-width: 220px; /* Larger width for cards */
-  border: 1px solid #ddd;
-  padding: 15px; /* Increased padding */
-  border-radius: 10%;
-  background-color: #fff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
+  
+  margin-bottom: 40px;
   text-align: center;
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.product-card h3 {
-  margin-top: 15px;
-  font-size: 1.2rem; /* Larger font size for product names */
-  color: #333;
-}
-
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .header {
-    flex-wrap: wrap;
-  }
-
-  .header-item {
-    margin-bottom: 20px;
-  }
-
-  .recipes-grid,
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  .header-item img {
-    width: 80px; /* Adjusted image width */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .header-item h3 {
-    font-size: 1rem; /* Smaller font size for headers */
-  }
-
-  .recipes-grid,
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .recipe-card {
-    max-width: 100%; /* Full width for smaller screens */
-    padding: 10px; /* Reduced padding */
-  }
-
-  .product-card {
-    max-width: 100%; /* Full width for smaller screens */
-    padding: 10px; /* Reduced padding */
-  }
-
-  .recipe-card h3,
-  .product-card h3 {
-    font-size: 1rem; /* Smaller font size for product names */
-  }
-}
-
-/* Carousel Section Styling */
 .carousel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  margin: 20px auto; /* Add spacing above and below */
-  overflow: hidden;
-  padding: 20px;
-  background-color: #f9f9f9; /* Light background for contrast */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Hide overflow to create a sliding effect */
+  max-width: 100%; /* Full width of the parent container */
+  margin: 0 auto; /* Center the carousel */
 }
 
 .carousel-row {
-  width: 100%;
-  display: flex;
-  gap: 15px;
-  overflow: hidden;
-  padding: 10px 0; /* Add padding to top and bottom */
+  display: flex; /* Align images in a row */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for sliding */
 }
 
 .carousel-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  margin-top: 30px;
+  width: 20%; /* Each image takes up 1/8 of the container width minus gaps */
+  margin-right: 15px; /* Gap between images */
+  border-radius: 60%; /* Rounded corners for circular images */
+  object-fit: cover; /* Ensure images cover the entire area without distortion */
+  height: 80px; /* Set a fixed height to make them round */
 }
 
-.carousel-image:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Elevate shadow on hover */
-}
-
+/* Carousel Buttons */
 .carousel-buttons {
   margin-top: 15px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between; /* Space between arrows */
+  transform: translateY(-50%); /* Center arrows vertically */
 }
 
 .carousel-arrow {
-  font-size: 24px;
-  font-weight: bold;
-  color: #555;
-  background-color: #fff;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  padding: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  border: none;
+  
   border-radius: 50%;
-  transition: background-color 0.3s, transform 0.3s;
+  width: 40px; /* Width of the arrow buttons */
+  height: 30px; /* Height of the arrow buttons */
+  font-size: 24px; /* Font size for arrow */
+  cursor: pointer;
+  transition: background 0.3s; /* Smooth hover effect */
 }
 
 .carousel-arrow:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.1);
+  background: rgb(252, 248, 5); /* Fully opaque on hover */
 }
 
-/* Responsive Adjustments */
+/* Responsive Styles */
 
-/* Medium screens (Tablets) */
-@media (max-width: 768px) {
+@media only screen and (max-width:1024px){
   .carousel-image {
-    width: 80px;
-    height: 80px;
+    width: 20%;
   }
-
-  .carousel-row {
-    gap: 10px;
+  .carousel-buttons{
+    top: 50%;
+  width: 100%;
   }
+  .carousel-arrow{
+    width: 20px; /* Width of the arrow buttons */
+  height: 30px; 
 
-  .carousel-arrow {
-    font-size: 22px;
-    padding: 8px;
   }
 }
 
-/* Small screens (Mobile) */
-@media (max-width: 480px) {
-  .carousel-image {
-    width: 60px;
-    height: 60px;
-  }
-  .Container{
-    padding: 15px;
-  }
 
-  .carousel-row {
-    gap: 8px;
-  }
 
-  .carousel-arrow {
-    font-size: 18px;
-    padding: 6px;
+
+/* Card Styles (for Products and Recipes) */
+.card {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card .title {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: var(--textColor);
+}
+
+.card .description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Layout for Cards */
+@media only screen and (max-width: 768px) {
+  .carousel, .card {
+      width: 100%;
+      padding: 0.5rem;
+  }
+  
+  .card img {
+      height: auto;
   }
 }

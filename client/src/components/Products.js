@@ -33,6 +33,8 @@ const Products = () => {
           >
             <img src={product.image} alt={product.name} />
             <p>{product.name}</p>
+            <p>{product.cost}</p>
+            <p>{product.description}</p>
           </div>
         ))}
       </div>

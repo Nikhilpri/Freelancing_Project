@@ -9,7 +9,7 @@ const Recipes = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/recipes');
+        const response = await fetch('http://localhost:5000/api/recipes/allrecipes');
         const data = await response.json();
         setRecipes(data);
       } catch (error) {
@@ -25,7 +25,7 @@ const Recipes = () => {
       <h2>Recipes</h2>
       <div className="recipes-grid">
         {recipes.map((recipe, index) => (
-          <div key={index} className="recipe-card" onClick={() => navigate('/recipe')}>
+          <div key={index} className="recipe-card" onClick={() => navigate(`/recipe-details`)}>
             <img src={recipe.image} alt={recipe.name} />
             <p>{recipe.name}</p>
           </div>

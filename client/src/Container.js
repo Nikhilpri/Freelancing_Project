@@ -4,6 +4,7 @@ import Recipes from './components/Recipes';
 import Products from './components/Products';
 import Navbar from './components/Navbar';
 import './App.css';
+import Carousel from './components/Carousel';
 
 function Container() {
   return (
@@ -12,6 +13,7 @@ function Container() {
       <Header />
       <Recipes />
       <Products />
+      <Carousel/>
     </div>
   );
 }

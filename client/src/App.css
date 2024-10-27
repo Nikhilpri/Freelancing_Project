@@ -13,32 +13,30 @@
 
 /* Header Section */
 .header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between grid items */
   padding: 20px;
   background-color: #fff;
   width: 100%;
 }
 
 .header-item {
-  display: flex; /* Added to align items inside the card */
+  display: flex; /* Align items inside the card */
   flex-direction: column; /* Align items vertically */
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   text-align: center;
   border-radius: 10%;
-  margin: 4%;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  flex: 1 1 200px; /* Larger width for header items */
   border: 1px solid #ddd; /* Same border style as recipe card */
   padding: 15px; /* Increased padding */
   background-color: #fff; /* Same background color */
 }
 
 .header-item img {
-  width: 96%; /* Image width remains the same */
-  height: auto; /* Set height to auto to maintain aspect ratio */
+  width: 80%; /* Image width */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 10%; /* Same border radius */
   margin-bottom: 10px;
 }
@@ -47,6 +45,43 @@
   margin: 5px 0;
   font-size: 1.2rem; /* Adjusted font size for consistency */
   color: #333;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 cards per row */
+  }
+
+  .header-item {
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+
+  .header-item img {
+    width: 90%; /* Ensure images fit well in smaller cards */
+  }
+
+  .header-item h3 {
+    font-size: 1rem; /* Adjusted font size for consistency */
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 cards per row */
+  }
+
+  .header-item {
+    padding: 5px; /* Further reduced padding for mobile */
+  }
+
+  .header-item img {
+    width: 60%; /* Smaller image size for mobile */
+  }
+
+  .header-item h3 {
+    font-size: 0.8rem; /* Smaller font size for headers */
+  }
 }
 
 
@@ -105,6 +140,15 @@
   margin: 40px 0;
   width: 100%;
 }
+.Sponsors {
+  text-align: center;
+  margin: 40px 0;
+  width: 100%;
+}
+.Sponsors h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
 
 .products-section h2 {
   font-size: 2rem;
@@ -158,18 +202,138 @@
     margin-bottom: 20px;
   }
 
-  .recipes-grid, .products-grid {
+  .recipes-grid,
+  .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
   .header-item img {
-    width: 100px;
-    height: 100px;
+    width: 80px; /* Adjusted image width */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .recipes-grid, .products-grid {
+  .header-item h3 {
+    font-size: 1rem; /* Smaller font size for headers */
+  }
+
+  .recipes-grid,
+  .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .recipe-card {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Reduced padding */
+  }
+
+  .product-card {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Reduced padding */
+  }
+
+  .recipe-card h3,
+  .product-card h3 {
+    font-size: 1rem; /* Smaller font size for product names */
+  }
+}
+
+/* Carousel Section Styling */
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 20px auto; /* Add spacing above and below */
+  overflow: hidden;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-row {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  overflow: hidden;
+  padding: 10px 0; /* Add padding to top and bottom */
+}
+
+.carousel-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-image:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Elevate shadow on hover */
+}
+
+.carousel-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-arrow {
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+
+/* Medium screens (Tablets) */
+@media (max-width: 768px) {
+  .carousel-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .carousel-row {
+    gap: 10px;
+  }
+
+  .carousel-arrow {
+    font-size: 22px;
+    padding: 8px;
+  }
+}
+
+/* Small screens (Mobile) */
+@media (max-width: 480px) {
+  .carousel-image {
+    width: 60px;
+    height: 60px;
+  }
+  .Container{
+    padding: 15px;
+  }
+
+  .carousel-row {
+    gap: 8px;
+  }
+
+  .carousel-arrow {
+    font-size: 18px;
+    padding: 6px;
   }
 }

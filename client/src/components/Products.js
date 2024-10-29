@@ -1,6 +1,5 @@
-// src/components/Products.js
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
 const Products = () => {
@@ -22,19 +21,21 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="products-section">
-      <h2>Products</h2>
+    <div className="products-page">
+      <h2 className="products-title">Products</h2>
       <div className="products-grid">
         {products.map((product) => (
           <div 
-            key={product.id} // Use product.id as the key
+            key={product.id} 
             className="product-card" 
-            onClick={() => navigate(`/product-details/${product.id}`)} // Pass the product ID in the URL
+            onClick={() => navigate(`/product-details/${product.id}`)}
           >
-            <img src={product.image} alt={product.name} />
-            <p>{product.name}</p>
-            <p>{product.cost}</p>
-            <p>{product.description}</p>
+            <img src={product.image || "https://via.placeholder.com/150"} alt={product.name} className="product-image" />
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <p>${product.cost}</p>
+              <p className="product-description">{product.description}</p>
+            </div>
           </div>
         ))}
       </div>

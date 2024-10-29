@@ -1,3 +1,4 @@
+// src/components/Recipes.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import '../App.css';
@@ -21,13 +22,24 @@ const Recipes = () => {
   }, []);
 
   return (
-    <div className="recipes-section">
-      <h2>Recipes</h2>
+    <div className="recipes-page">
+      <h2 className="recipes-title">Recipes</h2>
       <div className="recipes-grid">
         {recipes.map((recipe, index) => (
-          <div key={index} className="recipe-card" onClick={() => navigate(`/recipe-details`)}>
-            <img src={recipe.image} alt={recipe.name} />
-            <p>{recipe.name}</p>
+          <div 
+            key={index} 
+            className="recipe-card" 
+            onClick={() => navigate(`/recipe-details/${recipe.id}`)} // Pass recipe ID in URL
+          >
+            <img 
+              src={recipe.image || "https://via.placeholder.com/150"} 
+              alt={recipe.name} 
+              className="recipe-image"
+            />
+            <div className="recipe-info">
+              <p className="recipe-name">{recipe.name}</p>
+              <p className="recipe-description">{recipe.description}</p>
+            </div>
           </div>
         ))}
       </div>

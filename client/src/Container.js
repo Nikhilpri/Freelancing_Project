@@ -5,6 +5,7 @@ import Products from './components/Products';
 import Navbar from './components/Navbar';
 import './App.css';
 import Carousel from './components/Carousel';
+import AboutUs from './components/About';
 
 function Container() {
   return (
@@ -14,6 +15,7 @@ function Container() {
       <Recipes />
       <Products />
       <Carousel/>
+      <AboutUs/>
     </div>
   );
 }
